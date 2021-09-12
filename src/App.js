@@ -106,11 +106,10 @@ function App() {
 const ISLT = [
   {
     id: 50,
-    question: 'serpentinesss',
+    question: 'serpentine',
     answer: 'sinuous',
     options: [
-      '1',
-      '2'
+      'On a serpentine road, with grand arias'
     ]
   },
   {
@@ -118,7 +117,7 @@ const ISLT = [
     question: 'thrall',
     answer: 'the state of being in someones power or having great power over someone',
     options: [
-      "while I'm was asleep I had returned without the least effort to an earlier stage in my life, now for ever outgrown; and had come under the thrall of one of my childish terrors, such as that old terror of my great-uncles pulling my curls, which was effectually dispelled on the day—the dawn of a new era to me-on which they were finally cropped from my head. "
+      "while I'm was asleep I had returned without the least effort to an earlier stage in my life, now for ever outgrown; and had come under the <b>thrall</b> of one of my childish terrors, such as that old terror of my great-uncles pulling my curls, which was effectually dispelled on the day—the dawn of a new era to me-on which they were finally cropped from my head. "
     ]
   }
 ]
