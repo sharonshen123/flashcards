@@ -52,19 +52,19 @@ body {
 
 .card {
   display: flex;
+  --display: grid;
   justify-content: center;
   align-items: center;
   position: relative;
   border-radius: .25rem;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
   background-color: white;
+  transform-style: preserve-3d;
+  --transform-style: flat;
+  perspective-origin: -170%;
   transition: 150ms;
   cursor: pointer;
-  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
+  transform: perspective(10px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
 }
 
 .card:hover {
@@ -85,7 +85,6 @@ body {
   position: absolute;
   padding: 1rem;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 .card .back {
