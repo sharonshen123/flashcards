@@ -19,47 +19,47 @@ function App() {
   }, [])
 
   useEffect(() => {
-   
+
   }, [])
 
   function decodeString(str) {
     const textArea = document.createElement('textarea')
-    textArea.innerHTML= str
+    textArea.innerHTML = str
     return textArea.value
   }
-  function getCards(){
-    const sampleCards =  {"results":[{"category":"General Knowledge","type":"multiple","difficulty":"easy","question":"What is the profession of Elon Musk&#039;s mom, Maye Musk?","correct_answer":"Model","incorrect_answers":["Professor","Biologist","Musician"]}]}
-    return sampleCards
-  }
+  // function getCards(){
+  //   const sampleCards =  {"results":[{"category":"General Knowledge","type":"multiple","difficulty":"easy","question":"What is the profession of Elon Musk&#039;s mom, Maye Musk?","correct_answer":"Model","incorrect_answers":["Professor","Biologist","Musician"]}]}
+  //   return sampleCards
+  // }
   function handleSubmit(e) {
-   
+
     e.preventDefault()
     axios
-    .get('https://opentdb.com/api.php', {
-      params: {
-        amount: amountEl.current.value,
-        category: categoryEl.current.value
-      }
-    })
-    .then(res => {
-      setFlashcards(res.data.results.map((questionItem, index) => {
-        const answer = decodeString(questionItem.correct_answer)
-        const options = [
-          ...questionItem.incorrect_answers.map(a => decodeString(a)),
-          answer
-        ]
-        return {
-          id: `${index}-${Date.now()}`,
-          question: decodeString(questionItem.question),
-          answer: answer,
-          options: options.sort(() => Math.random() - .5)
+      .get('https://opentdb.com/api.php', {
+        params: {
+          amount: amountEl.current.value,
+          category: categoryEl.current.value
         }
-      }))
-    })
+      })
+      .then(res => {
+        setFlashcards(res.data.results.map((questionItem, index) => {
+          const answer = decodeString(questionItem.correct_answer)
+          const options = [
+            ...questionItem.incorrect_answers.map(a => decodeString(a)),
+            answer
+          ]
+          return {
+            id: `${index}-${Date.now()}`,
+            question: decodeString(questionItem.question),
+            answer: answer,
+            options: options.sort(() => Math.random() - .5)
+          }
+        }))
+      })
 
-    
-    
-    
+
+
+
     /*setFlashcards(getCards().results.map((questionItem, index) => {
         const answer = decodeString(questionItem.correct_answer)
         const options = [
@@ -74,7 +74,7 @@ function App() {
         }
 
     }))*/
-    
+
   }
 
   return (
@@ -83,7 +83,7 @@ function App() {
         <div className="form-group">
           <label htmlFor="category">Category</label>
           <select id="category" ref={categoryEl}>
-          {categories.map(category => {
+            {categories.map(category => {
               return <option value={category.id} key={category.id}>{category.name}</option>
             })}
             <option value={50} key={50}>Adj</option>
@@ -103,13 +103,14 @@ function App() {
     </>
   );
 }
+const name = { question: 'sinuous' };
 const ISLT = [
   {
     id: 50,
     question: 'serpentine',
     answer: 'sinuous',
     options: [
-      'On a serpentine road, with grand arias'
+      "On a <b>serpentine</b> question, with grand arias"
     ]
   },
   {
@@ -117,7 +118,7 @@ const ISLT = [
     question: 'thrall',
     answer: 'the state of being in someones power or having great power over someone',
     options: [
-      "while I'm was asleep I had returned without the least effort to an earlier stage in my life, now for ever outgrown; and had come under the <b>thrall</b> of one of my childish terrors, such as that old terror of my great-uncles pulling my curls, which was effectually dispelled on the day—the dawn of a new era to me-on which they were finally cropped from my head. "
+      "While I'm was asleep I had returned without the least effort to an earlier stage in my life, now for ever outgrown; and had come under the <b>thrall</b> of one of my childish terrors, such as that old terror of my great-uncles pulling my curls, which was effectually dispelled on the day—the dawn of a new era to me-on which they were finally cropped from my head."
     ]
   }
 ]
