@@ -64,6 +64,8 @@ body {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
+  
+  
 }
 
 .card:hover {
@@ -83,7 +85,8 @@ body {
   position: absolute;
   padding: 1rem;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+ 
+  
 }
 
 .card .back {
