@@ -109,7 +109,7 @@ const ISLT = [
     question: 'serpentine',
     answer: 'sinuous',
     options: [
-      "On a '<b>'serpentine'</b>' road, with grand arias"
+      "On a <b>serpentine</b> road, with grand arias"
     ]
   },
   {
