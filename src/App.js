@@ -4,7 +4,7 @@ import './App.css'
 import axios from 'axios'
 
 function App() {
-  const [flashcards, setFlashcards] = useState(ISLT)
+  const [flashcards, setFlashcards] = useState([])
   const [categories, setCategories] = useState([])
 
   const categoryEl = useRef()
@@ -12,29 +12,24 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('https://opentdb.com/api_category.php')
+      .get('http://localhost:5000/getData')
       .then(res => {
-        setCategories(res.data.trivia_categories)
+        const allCategories = res.data.map((item, index) => {
+          return {
+            id: index,
+            name: item.category
+          }
+        })
+        console.log(allCategories);
+        setCategories(allCategories)
       })
   }, [])
 
-  useEffect(() => {
-   
-  }, [])
-
-  function decodeString(str) {
-    const textArea = document.createElement('textarea')
-    textArea.innerHTML= str
-    return textArea.value
-  }
-  function getCards(){
-    const sampleCards =  {"results":[{"category":"General Knowledge","type":"multiple","difficulty":"easy","question":"What is the profession of Elon Musk&#039;s mom, Maye Musk?","correct_answer":"Model","incorrect_answers":["Professor","Biologist","Musician"]}]}
-    return sampleCards
-  }
   function handleSubmit(e) {
-   
+    console.log(e);
     e.preventDefault()
     axios
+<<<<<<< HEAD
     .get('https://protected-temple-56132.herokuapp.com/getData')
     .then(res => {
       
@@ -80,6 +75,20 @@ function App() {
 
     }))*/
     
+=======
+      .get('http://localhost:5000/getData')
+      .then(res => {
+        setFlashcards(res.data.map((item, index) => {
+          return {
+            id: `${index}-${Date.now()}`,
+            definition: item.definition,
+            category: item.category,
+            word: item.word,
+            sentence: item.sentence
+          }
+        }))
+      });
+>>>>>>> e45d47c4dd3ce2d6e7879bebf9a0ef611eae91d8
   }
 
   return (
@@ -88,14 +97,15 @@ function App() {
         <div className="form-group">
           <label htmlFor="category">Category</label>
           <select id="category" ref={categoryEl}>
-          {categories.map(category => {
-              return <option value={category.id} key={category.id}>{category.name}</option>
+            {categories.map(category => {
+              const valid = category.id && category.name;
+              return valid && <option value={category.id} key={category.id}>{category.name}</option>
             })}
             <option value={50} key={50}>Adj</option>
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="amount">Number of Questions</label>
+          <label htmlFor="amount">Number of Words</label>
           <input type="number" id="amount" min="1" step="1" defaultValue={10} ref={amountEl} />
         </div>
         <div className="form-group">
@@ -108,6 +118,7 @@ function App() {
     </>
   );
 }
+<<<<<<< HEAD
 const ISLT = [
   {
     id: 50,
@@ -126,4 +137,6 @@ const ISLT = [
     ]
   }
 ]
+=======
+>>>>>>> e45d47c4dd3ce2d6e7879bebf9a0ef611eae91d8
 export default App;
