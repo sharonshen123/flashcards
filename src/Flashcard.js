@@ -39,6 +39,10 @@ export default function Flashcard({ flashcard }) {
           <div className="flashcard-options">
             <div className="flashcard-option" key={flashcard.word}><b>Definition:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.definition }}></span></div>
           </div>
+          <hr></hr>
+          <div className="flashcard-options">
+            <div className="flashcard-option" key={flashcard.synm}><b>Synonyms:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.synm }}></span></div>
+          </div>
           </div>
           
         </div>

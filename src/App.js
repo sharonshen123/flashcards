@@ -37,7 +37,8 @@ function App() {
             definition: item.definition,
             category: item.category,
             word: item.word,
-            sentence: item.sentence
+            sentence: item.sentence,
+            synm: item.synm
           }
         }))
       });
