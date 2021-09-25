@@ -30,18 +30,17 @@ export default function Flashcard({ flashcard }) {
         <div className="front" ref={frontEl}>
           <strong>{flashcard.word}</strong>
           <hr></hr>
-          <div className="flashcard-options">
-            <div className="flashcard-option" key={flashcard.word}><b>Definition:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.definition }}></span></div>
+          <div class="back-text">
+            <span dangerouslySetInnerHTML={{ __html: flashcard.sentence }}></span>
           </div>
         </div>
         <div className="back" ref={backEl}>
           <div class="back-label">
-            <label><b>Sentence</b></label>
-            <hr></hr>
+          <div className="flashcard-options">
+            <div className="flashcard-option" key={flashcard.word}><b>Definition:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.definition }}></span></div>
           </div>
-          <div class="back-text">
-            <span dangerouslySetInnerHTML={{ __html: flashcard.sentence }}></span>
           </div>
+          
         </div>
       </div>
     </div >
