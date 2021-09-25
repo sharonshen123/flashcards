@@ -2,7 +2,7 @@
   "name": "flashcard-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sharonshen123.github.io/flashcards",
+  "homepage": "https://flashcards-is61d263a-sharonshen123.vercel.app/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
