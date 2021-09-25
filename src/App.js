@@ -35,7 +35,12 @@ function App() {
    
     e.preventDefault()
     axios
-    .get('https://opentdb.com/api.php', {
+    .get('https://protected-temple-56132.herokuapp.com/getData')
+    .then(res => {
+      
+    }
+      )
+    /*.get('https://opentdb.com/api.php', {
       params: {
         amount: amountEl.current.value,
         category: categoryEl.current.value
@@ -55,7 +60,7 @@ function App() {
           options: options.sort(() => Math.random() - .5)
         }
       }))
-    })
+    })*/
 
     
     
