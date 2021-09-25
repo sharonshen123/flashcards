@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 export default function Flashcard({ flashcard }) {
+  console.log('Flashcard', flashcard)
   const [flip, setFlip] = useState(false)
   const [height, setHeight] = useState('initial')
 
@@ -13,7 +14,7 @@ export default function Flashcard({ flashcard }) {
     setHeight(Math.max(frontHeight, backHeight, 100))
   }
 
-  useEffect(setMaxHeight, [flashcard.question, flashcard.answer, flashcard.options])
+  useEffect(setMaxHeight, [flashcard])
   useEffect(() => {
     window.addEventListener('resize', setMaxHeight)
     return () => window.removeEventListener('resize', setMaxHeight)
@@ -27,15 +28,22 @@ export default function Flashcard({ flashcard }) {
         onClick={() => setFlip(!flip)}
       >
         <div className="front" ref={frontEl}>
-          <b>{flashcard.question}</b>
+          <strong>{flashcard.word}</strong>
+          <hr></hr>
           <div className="flashcard-options">
-            {flashcard.options.map(option => {
-              return <div className="flashcard-option" key={option}><span dangerouslySetInnerHTML={{ __html: option }}></span></div>
-            })}
+            <div className="flashcard-option" key={flashcard.word}><b>Definition:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.definition }}></span></div>
           </div>
         </div>
-        <div className="back" ref={backEl}><span>{flashcard.answer}</span></div>
+        <div className="back" ref={backEl}>
+          <div class="back-label">
+            <label><b>Sentence</b></label>
+            <hr></hr>
+          </div>
+          <div class="back-text">
+            <span dangerouslySetInnerHTML={{ __html: flashcard.sentence }}></span>
+          </div>
+        </div>
       </div>
-    </div>
+    </div >
   )
 }
