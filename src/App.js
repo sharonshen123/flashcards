@@ -38,7 +38,7 @@ function App() {
             category: item.category,
             word: item.word,
             sentence: item.sentence,
-            synm: item.synonyms
+            synonyms: item.synonyms
           }
         }))
       });
