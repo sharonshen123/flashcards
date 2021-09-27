@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/getData')
+      .get('http://sharon.bdxonline.com:5000/getData')
       .then(res => {
         const allCategories = res.data.map((item, index) => {
           return {
@@ -29,7 +29,7 @@ function App() {
     console.log(e);
     e.preventDefault()
     axios
-      .get('http://localhost:5000/getData')
+      .get('http://sharon.bdxonline.com:5000/getData')
       .then(res => {
         setFlashcards(res.data.map((item, index) => {
           return {
