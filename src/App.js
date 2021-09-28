@@ -62,7 +62,7 @@ function App() {
       <div className="form-group">
           <label htmlFor="book">Book</label>
           <select id="book" ref={bookEl}>
-            {categories.map(book => {
+            {books.map(book => {
               const valid1 = book.id && book.name;
               return valid1 && <option value={book.id} key={book.id}>{book.name}</option>
             })}
