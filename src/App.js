@@ -6,9 +6,11 @@ import axios from 'axios'
 function App() {
   const [flashcards, setFlashcards] = useState([])
   const [categories, setCategories] = useState([])
+  const [books, setBooks] = useState([])
 
   const categoryEl = useRef()
   const amountEl = useRef()
+  const bookEl = useRef()
 
   useEffect(() => {
     axios
@@ -20,8 +22,16 @@ function App() {
             name: item.category
           }
         })
+        const allBooks = res.data.map((item, index) => {
+          return {
+            id: index,
+            name: item.book
+          }
+        })
         console.log(allCategories);
         setCategories(allCategories)
+        console.log(allBooks);
+        setBooks(allBooks)
       })
   }, [])
 
@@ -34,6 +44,8 @@ function App() {
         setFlashcards(res.data.map((item, index) => {
           return {
             id: `${index}-${Date.now()}`,
+            book: item.book,
+            pg: item.pg,
             definition: item.definition,
             category: item.category,
             word: item.word,
@@ -47,6 +59,16 @@ function App() {
   return (
     <>
       <form className="header" onSubmit={handleSubmit}>
+      <div className="form-group">
+          <label htmlFor="book">Book</label>
+          <select id="book" ref={bookEl}>
+            {categories.map(book => {
+              const valid1 = book.id && book.name;
+              return valid1 && <option value={book.id} key={book.id}>{book.name}</option>
+            })}
+            <option value={50} key={50}>TKMB</option>
+          </select>
+        </div>
         <div className="form-group">
           <label htmlFor="category">Category</label>
           <select id="category" ref={categoryEl}>
