@@ -41,7 +41,7 @@ function App() {
     axios
       .get('http://sharon.bdxonline.com:5000/filterBy', {
         params: {
-          book: bookEl.current.value,
+          
           category: categoryEl.current.value
         }
       })
