@@ -39,7 +39,12 @@ function App() {
     console.log(e);
     e.preventDefault()
     axios
-      .get('http://sharon.bdxonline.com:5000/getData')
+      .get('http://sharon.bdxonline.com:5000/filterBy', {
+        params: {
+          book: bookEl.current.value,
+          category: categoryEl.current.value
+        }
+      })
       .then(res => {
         setFlashcards(res.data.map((item, index) => {
           return {
