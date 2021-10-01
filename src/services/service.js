@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const APIURL = 'http://localhost:5000/'
+const APIURL = 'http://sharon.bdxonline.com:5000/'
 const Services = {
     getAllData() {
         return axios
