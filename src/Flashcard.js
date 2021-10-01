@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 export default function Flashcard({ flashcard }) {
-  console.log('Flashcard', flashcard)
   const [flip, setFlip] = useState(false)
   const [height, setHeight] = useState('initial')
 
@@ -35,14 +34,12 @@ export default function Flashcard({ flashcard }) {
           </div>
         </div>
         <div className="back" ref={backEl}>
-          <div class="back-label">
-          <div className="flashcard-options">
-            <div className="flashcard-option" key={flashcard.word}><b>Definition:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.definition }}></span></div>
+          <div className="back-label">
+            <label><b>Sentence</b></label>
+            <hr></hr>
           </div>
-          <hr></hr>
-          <div className="flashcard-options">
-            <div className="flashcard-option" key={flashcard.synonyms}><b>Synonyms:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.synonyms }}></span></div>
-          </div>
+          <div className="back-text">
+            <span dangerouslySetInnerHTML={{ __html: flashcard.sentence }}></span>
           </div>
           
         </div>

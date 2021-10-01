@@ -109,7 +109,8 @@ span {
     color: #555;
     font-size: .85rem;
 }
-.back-label{
+
+.back-label {
     position: relative;
 }
 
@@ -118,7 +119,6 @@ span {
     border-radius: 2px;
     border-style: inset;
     padding: 1px;
-
 }
 
 .flashcard-option:first-child {
@@ -129,7 +129,8 @@ span {
     overflow: auto;
     max-height: 120px;
 }
-nav{
+
+nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -137,8 +138,9 @@ nav{
     background: rgb(73, 79, 82);
     color: white;
 }
-.nav-links{
-    width:50%;
+
+.nav-links {
+    width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
