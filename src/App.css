@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(27, 162, 196);
+    background-color: rgb(240, 240, 240);
     margin: 0;
 }
 
@@ -8,6 +8,18 @@ body {
     margin: 1rem 2rem;
     perspective: 900000px;
     -webkit-perspective: 900000px;
+}
+
+.usercontainer {
+    align-content: center;
+    text-align: center;
+    padding: 16px;
+}
+
+.userform {
+    align-content: center;
+    text-align: center;
+    padding: 16px;
 }
 
 .header {
@@ -34,6 +46,24 @@ body {
 
 .btn {
     background-color: hsl(200, 100%, 50%);
+    color: white;
+    padding: .5em 1em;
+    border-radius: .3em;
+    border: none;
+    cursor: pointer;
+}
+
+.userbtn {
+    background-color: hsl(200, 100%, 50%);
+    color: white;
+    padding: .5em 1em;
+    border-radius: .3em;
+    border: none;
+    cursor: pointer;
+}
+
+.userbtn:disabled {
+    background-color: hsl(200, 42%, 69%);
     color: white;
     padding: .5em 1em;
     border-radius: .3em;
@@ -135,7 +165,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
-    background: rgb(73, 79, 82);
+    background: rgb(235, 4, 139);
     color: white;
 }
 

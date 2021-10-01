@@ -9,6 +9,10 @@ const Services = {
     filterBy(filterOptions) {
         return axios
             .post(APIURL + '/filterBy', filterOptions)
+    },
+    checkUserCache() {
+        const userInfo = localStorage.getItem('userInfo') ?? '';
+        return userInfo.length > 0;
     }
 }
 

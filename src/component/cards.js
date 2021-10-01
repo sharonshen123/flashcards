@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import FlashcardList from '../FlashcardList';
-import '../App.css'
-import Services from '../services/service'
+import '../App.css';
+import Services from '../services/service';
 
 function CardsPage() {
     const [flashcards, setFlashcards] = useState([])
@@ -60,7 +60,7 @@ function CardsPage() {
             });
     }
 
-    return (
+    return (Services.checkUserCache() &&
         <>
             <form className="header" onSubmit={handleSubmit}>
                 <div className="form-group">
