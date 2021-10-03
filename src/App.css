@@ -1,6 +1,5 @@
 body {
-    background-color: rgb(240, 240, 240);
-    margin: 0;
+    background-color: rgb(47, 199, 55);
 }
 
 .container {
@@ -10,10 +9,37 @@ body {
     -webkit-perspective: 900000px;
 }
 
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background: #198754;
+    color: white;
+}
+
+.nav-links {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
 .usercontainer {
-    align-content: center;
     text-align: center;
+    align-content: center;
     padding: 16px;
+    margin: auto;
+    margin-top: 16px;
+}
+
+.userTitle {
+    margin-top: 5px;
+}
+
+.card-body {
+    height: 20rem;
 }
 
 .userform {
@@ -27,7 +53,6 @@ body {
     justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
-    background-color: rgb(214, 233, 248);
     padding: 0 1.5rem;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
 }
@@ -51,28 +76,6 @@ body {
     border-radius: .3em;
     border: none;
     cursor: pointer;
-}
-
-.userbtn {
-    background-color: hsl(200, 100%, 50%);
-    color: white;
-    padding: .5em 1em;
-    border-radius: .3em;
-    border: none;
-    cursor: pointer;
-}
-
-.userbtn:disabled {
-    background-color: hsl(200, 42%, 69%);
-    color: white;
-    padding: .5em 1em;
-    border-radius: .3em;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: hsl(200, 100%, 40%);
 }
 
 .card-grid {
@@ -157,37 +160,34 @@ span {
 
 .back {
     overflow: auto;
-    
 }
 
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 10vh;
-    background: rgb(235, 4, 139);
-    color: white;
-}
-
-.nav-links {
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-}
 label.radio {
     display: block;
     text-align: left;
     padding: 15px;
     margin-bottom: 5px;
     font-size: 20px;
-  }
-  
-  label.radio+.radio {
+}
+
+label.radio+.radio {
     margin-left: 0;
-  }
-  
-  label.radio input {
+}
+
+label.radio input {
     margin-right: 10px;
-  }
+}
+
+.home_btns {
+    padding: 16px;
+}
+
+.btn-success {
+    margin: 0.5rem;
+    width: 10rem;
+}
+
+.quiz-container {
+    padding: 16px;
+    margin-top: 2rem;
+}

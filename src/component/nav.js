@@ -1,16 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
+import logo from '../assets/logo.png';
 
 function Nav() {
     const navStyle = {
-        color: 'white'
+        color: 'white',
+        textDecoration: 'none'
     };
     return (
-        <nav>
-            <h3><img src="./gardenia.jpg" alt="" width="50" height="60"/></h3>
+        <nav className="ml-auto">
+            <img src={logo} alt="logo" className="rounded-circle" width="60" height="60" />
             <ul className="nav-links">
-                <Link style={navStyle} to="/Home">
+                <Link style={navStyle} to="/">
                     <li>Home</li>
                 </Link>
                 <Link style={navStyle} to="/Quiz">
@@ -19,6 +21,7 @@ function Nav() {
                 <Link style={navStyle} to="/Cards">
                     <li>Cards</li>
                 </Link>
+
             </ul>
         </nav>
 

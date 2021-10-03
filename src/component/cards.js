@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import FlashcardList from '../FlashcardList';
+import FlashcardList from './flashcards/FlashcardList';
 import '../App.css';
 import Services from '../services/service';
 
@@ -61,39 +61,58 @@ function CardsPage() {
             });
     }
 
-    return (Services.checkUserCache() &&
-        <>
-            <form className="header" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="category">Category</label>
-                    <select id="category" ref={categoryEl}>
-                        {categories.map(category => {
-                            const valid = category.id && category.name;
-                            return valid && <option key={category.id}>{category.name}</option>
-                        })}
-                    </select>
+    function renderBody() {
+        return (
+            <>
+                <form className="header" onSubmit={handleSubmit}>
+                    <div className="row">
+                        <div className="col-4">
+                            <label htmlFor="category">Category</label>
+                            <select id="category" ref={categoryEl}>
+                                {categories.map(category => {
+                                    const valid = category.id && category.name;
+                                    return valid && <option key={category.id}>{category.name}</option>
+                                })}
+                            </select>
+                        </div>
+                        <div className="col-8">
+                            <label htmlFor="word_count">Number of Words</label>
+                            <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
+                        </div>
+                    </div>
+                    <div className="col">
+                        <label htmlFor="book">Books</label>
+                        <select id="book" ref={bookEl}>
+                            {books.map(book => {
+                                const valid = book.id && book.name;
+                                return valid && <option key={book.id}>{book.name}</option>
+                            })}
+                        </select>
+                    </div>
+                    <div className="col">
+                        <button className="btn btn-success">Generate</button>
+                    </div>
+                </form>
+                <div className="container">
+                    <FlashcardList flashcards={flashcards} />
                 </div>
-                <div className="form-group">
-                    <label htmlFor="book">Books</label>
-                    <select id="book" ref={bookEl}>
-                        {books.map(book => {
-                            const valid = book.id && book.name;
-                            return valid && <option key={book.id}>{book.name}</option>
-                        })}
-                    </select>
+            </>)
+    }
+    function renderError() {
+        return (
+            <>
+                <div>
+                    <div className="card alert alert-danger">
+                        <div>
+                            <div><strong>No User Info Found!!</strong> Navigate to HomeScreen to add user info</div>
+                        </div>
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="word_count">Number of Words</label>
-                    <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
-                </div>
-                <div className="form-group">
-                    <button className="btn">Generate</button>
-                </div>
-            </form>
-            <div className="container">
-                <FlashcardList flashcards={flashcards} />
-            </div>
-        </>
-    );
+            </>
+        )
+    }
+
+    // RETURN MAIN CONTENT IF USER INFO FOUND ELSE SHOW ERROR
+    return (Services.checkUserCache() ? renderBody() : renderError());
 }
 export default CardsPage;
