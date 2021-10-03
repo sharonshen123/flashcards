@@ -157,7 +157,7 @@ span {
 
 .back {
     overflow: auto;
-    max-height: 120px;
+    
 }
 
 nav {
@@ -176,3 +176,18 @@ nav {
     align-items: center;
     list-style: none;
 }
+label.radio {
+    display: block;
+    text-align: left;
+    padding: 15px;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  
+  label.radio+.radio {
+    margin-left: 0;
+  }
+  
+  label.radio input {
+    margin-right: 10px;
+  }

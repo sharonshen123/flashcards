@@ -1,0 +1,37 @@
+{
+    "data": [
+      {
+        "book": "The Economist",
+        "pg":"2021/09/25",
+        "category": "adv",
+        "question": "<<Europe>>France, a  <b>-----</b>, proud nation, it does not hesitate to say out loud what others keep to themselves",
+        "choices": ["prickly", "haughty", "de facto"],
+        "answer": "prickly"
+      },
+      {
+        "book": "The Economist",
+        "pg":"2021/09/25",
+        "category": "verb",
+        "question": "<<Europe>>-Low odds, however, seldom <b>-----</b> Mr Macron. After the latest snub, the unhugged French president will doubtless conclude that he has little choice but to keep trying.",
+        "choices": ["deter", "dithered", "bold"],
+        "answer": "deter"
+      },
+      {
+        "book": "The Economist",
+        "pg":"2021/09/25",
+        "category": "verb",
+        "question": "<<peter thiel scourge of silicon valley>>-Max Chafkin, who <b>-----</b> through this litany of inconsistencies in a new book, <<The Contrarian>>, writes fluently",
+        "choices": ["trawls", "net-fish", "sift"],
+        "answer": "trawls"
+      },
+      {
+        "book": "The Economist",
+        "pg":"2021/09/25",
+        "category": "noun",
+        "question": "<<peter thiel scourge of silicon valley>>-Evidently Mr Thiel, ever the <b>-----</b> , does not view Mordor as harshly as most Tolkien fans do. As he once told a friend: “I’d rather be seen as evil than incompetent”",
+        "choices": ["contrarian", "dissent"],
+        "answer": "contrarian"
+      }
+      
+    ]
+  }

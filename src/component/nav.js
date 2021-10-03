@@ -8,7 +8,7 @@ function Nav() {
     };
     return (
         <nav>
-            <h3>Logo</h3>
+            <h3><img src="./gardenia.jpg" alt="" width="50" height="60"/></h3>
             <ul className="nav-links">
                 <Link style={navStyle} to="/Home">
                     <li>Home</li>

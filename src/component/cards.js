@@ -54,7 +54,8 @@ function CardsPage() {
                         definition: item.definition,
                         category: item.category,
                         word: item.word,
-                        sentence: item.sentence
+                        sentence: item.sentence,
+                        synonyms: item.synonyms
                     }
                 }))
             });
