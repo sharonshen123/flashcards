@@ -37,8 +37,8 @@ function CardsPage() {
         e.preventDefault()
         const filterOptions = {
             "category": e.target[0].value,
-            "book": e.target[1].value,
-            "word_count": Number(e.target[2].value)
+            "book": e.target[2].value,
+            "word_count": Number(e.target[1].value)
         }
         filterData(filterOptions)
     }
