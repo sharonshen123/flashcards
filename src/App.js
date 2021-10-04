@@ -16,6 +16,9 @@ function App() {
           <Route path="/cards" component={Cards} />
           <Route path="/quiz" component={Quiz} />
         </Switch>
+        <div className="footer col-12">
+          <span>All rights reserved &copy;Sharon Shen</span>
+        </div>
       </div>
     </Router>
   )
@@ -39,34 +42,34 @@ function Home() {
 
   function renderNewUserBox() {
     return (
-      <div className="usercontainer">
-        <div className="card user-card alert-success">
-          <div className="userTitle">
-            <h6>Hey User!! Welcome</h6>
-            <div className="col-12">
-              <span>User name will be used by the application to store your user data</span>
+      <>
+        <div className="usercontainer">
+          <div className="card user-card alert-success">
+            <div className="userTitle">
+              <h4>Hey!! Lets begin with your user name</h4>
+              <hr />
             </div>
-          </div>
-          <div className="card-body col-12">
-            <form className="userform" onSubmit={handleSubmit}>
-              <div className="offset-2 col-8">
-                <div className="form-group">
-                  <input type='text' value={username} placeholder="Enter User Name" onChange={handleUserName} />
+            <div className="card-body col-12">
+              <form className="userform" onSubmit={handleSubmit}>
+                <div className="offset-2 col-8">
+                  <div className="form-group">
+                    <input type='text' value={username} placeholder="Enter User Name" onChange={handleUserName} />
+                  </div>
                 </div>
-              </div>
-              <div className="home_btns">
-                <button className="btn btn-warning" disabled={username.length === 0}>&nbsp;&nbsp;Let's Go&nbsp;&nbsp;</button>
-              </div>
-              {/* {username.length !== 0 &&
+                <div className="home_btns">
+                  <button className="btn btn-success" disabled={username.length === 0}>&nbsp;&nbsp;Let's Go&nbsp;&nbsp;</button>
+                </div>
+                {/* {username.length !== 0 &&
                 <div className="col">
                   <button type="button" className="btn btn-success" onClick={() => history.push('/quiz')} disabled={!isUserSaved}> Play Quiz&nbsp;</button>
                   <button type="button" className="btn btn-success" onClick={() => history.push('/cards')} disabled={!isUserSaved}> Learn Words</button>
                 </div>
               } */}
-            </form>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     )
   }
   function renderExistingUserBox() {
@@ -74,7 +77,12 @@ function Home() {
       <div className="usercontainer" >
         <div className="card user-card alert alert-success">
           <div className="userTitle">
-            <div><strong>Hi {username}!!</strong> Great to see you back !!</div>
+            <div>
+              <h4>Hi {username}!!</h4>
+              <div>
+                <label>Great to see you back !!</label>
+              </div>
+            </div>
           </div>
           <div className="card-body">
             <div className="home_btns">

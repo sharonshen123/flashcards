@@ -99,6 +99,30 @@ function Quiz() {
     function renderLoader() {
         return <div className="loader offset-6"><span className="spinner-grow spinner-grow-lg text-success"></span></div>;
     }
+
+    function renderError() {
+        return (
+            <>
+                <div>
+                    <div className="card alert alert-danger">
+                        <div>
+                            <div><strong>No User Info Found!!</strong> Navigate to HomeScreen to add user info</div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
+    }
+
+    function renderNoData() {
+        return (
+            <div className="card alert alert-danger alert-footer">
+                <div>
+                    <div><strong>Sorry No Results!!</strong></div>
+                </div>
+            </div>);
+    }
+
     function renderBody() {
         return (
             isLoading ? renderLoader() :
@@ -147,19 +171,6 @@ function Quiz() {
                         />}
                     </div>
                 </>
-        )
-    }
-    function renderError() {
-        return (
-            <>
-                <div>
-                    <div className="card alert alert-danger">
-                        <div>
-                            <div><strong>No User Info Found!!</strong> Navigate to HomeScreen to add user info</div>
-                        </div>
-                    </div>
-                </div>
-            </>
         )
     }
 

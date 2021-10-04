@@ -29,7 +29,7 @@ export default function Flashcard({ flashcard }) {
         <div className="front" ref={frontEl}>
           <strong>{flashcard.word}</strong>
           <hr></hr>
-          <div class="back-text">
+          <div className="back-text">
             <span dangerouslySetInnerHTML={{ __html: flashcard.sentence }}></span>
           </div>
         </div>
