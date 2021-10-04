@@ -65,9 +65,9 @@ function CardsPage() {
         return (
             <>
                 <form className="header" onSubmit={handleSubmit}>
-                    <div className="row">
-                        <div className="col-4">
-                            <label htmlFor="category">Category</label>
+                    <div className="col">
+                        <div className="">
+                            <span htmlFor="category">Category</span>
                             <select id="category" ref={categoryEl}>
                                 {categories.map(category => {
                                     const valid = category.id && category.name;
@@ -75,8 +75,8 @@ function CardsPage() {
                                 })}
                             </select>
                         </div>
-                        <div className="col-8">
-                            <label htmlFor="word_count">Number of Words</label>
+                        <div className="col">
+                            {/* <label htmlFor="word_count">No: of Words</label> */}
                             <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
                         </div>
                     </div>
@@ -90,10 +90,10 @@ function CardsPage() {
                         </select>
                     </div>
                     <div className="col">
-                        <button className="btn btn-success">Generate</button>
+                        <button className="btn btn-success">Filter</button>
                     </div>
                 </form>
-                <div className="container">
+                <div className="flashcard-container">
                     <FlashcardList flashcards={flashcards} />
                 </div>
             </>)

@@ -101,7 +101,7 @@ function Quiz() {
     }
     function renderBody() {
         return (
-            <div className="container">
+            <>
                 <form className="header" onSubmit={handleSubmit}>
                     <span htmlFor="category"><strong>Category&nbsp;</strong></span>
                     <select id="category" ref={categoryEl}>
@@ -145,7 +145,7 @@ function Quiz() {
                         data={quizData.data}
                     />}
                 </div>
-            </div >
+            </>
         )
     }
     function renderError() {

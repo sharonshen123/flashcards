@@ -1,14 +1,15 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const APIURL = 'http://sharon.bdxonline.com:5000/'
+const API_URL = 'http://sharon.bdxonline.com:5000/'
+console.log(process.env)
 const Services = {
     getAllData() {
         return axios
-            .get(APIURL + '/getData')
+            .get(API_URL + '/getData')
     },
     filterBy(filterOptions) {
         return axios
-            .post(APIURL + '/filterBy', filterOptions)
+            .post(API_URL + '/filterBy', filterOptions)
     },
     checkUserCache() {
         const userInfo = localStorage.getItem('userInfo') ?? '';

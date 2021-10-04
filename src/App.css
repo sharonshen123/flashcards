@@ -1,10 +1,9 @@
 body {
-    background-color: rgb(183, 236, 185);
+    background-color: rgb(207, 243, 208);
 }
 
 .container {
     max-width: 2000px;
-    margin: 1rem 2rem;
     perspective: 900000px;
     -webkit-perspective: 900000px;
 }
