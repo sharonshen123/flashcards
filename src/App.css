@@ -37,8 +37,14 @@ nav {
     margin-top: 5px;
 }
 
-.card-body {
+/* .card-body {
     height: 20rem;
+} */
+
+.loader {
+    align-content: center;
+    margin-top: 20rem;
+    position: absolute;
 }
 
 .userform {
@@ -69,7 +75,6 @@ nav {
 }
 
 .btn {
-    background-color: hsl(200, 100%, 50%);
     color: white;
     padding: .5em 1em;
     border-radius: .3em;

@@ -97,55 +97,56 @@ function Quiz() {
         }, 1000);
     }
     function renderLoader() {
-        return <div className="spinner-border text-success"></div>;
+        return <div className="loader offset-6"><span className="spinner-grow spinner-grow-lg text-success"></span></div>;
     }
     function renderBody() {
         return (
-            <>
-                <form className="header" onSubmit={handleSubmit}>
-                    <span htmlFor="category"><strong>Category&nbsp;</strong></span>
-                    <select id="category" ref={categoryEl}>
-                        {categories.map(category => {
-                            const valid = category.id && category.name;
-                            return valid && <option key={category.id}>{category.name}</option>
-                        })}
-                    </select>
-                    <span htmlFor="word_count"><strong>Count&nbsp;</strong></span>
-                    <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
-                    <span htmlFor="book"><strong>Books&nbsp;</strong></span>
-                    <select id="book" ref={bookEl}>
-                        {books.map(book => {
-                            const valid = book.id && book.name;
-                            return valid && <option key={book.id}>{book.name}</option>
-                        })}
-                    </select>
-                    <button className="btn btn-success btn-sm btn-generate">Filter</button>
-                </form>
-                <div className="quiz-container">
-                    {step === 1 && <Start onQuizStart={quizStartHandler} />}
-                    {step === 2 && <Question
-                        data={quizData.data[activeQuestion]}
-                        onAnswerUpdate={setAnswers}
-                        numberOfQuestions={quizData.data.length}
-                        activeQuestion={activeQuestion}
-                        onSetActiveQuestion={setActiveQuestion}
-                        onSetStep={setStep}
-                    />}
-                    {step === 3 && <End
-                        results={answers}
-                        data={quizData.data}
-                        onReset={resetClickHandler}
-                        onAnswersCheck={() => setShowModal(true)}
-                        time={time}
-                    />}
+            isLoading ? renderLoader() :
+                <>
+                    <form className="header" onSubmit={handleSubmit}>
+                        <span htmlFor="category"><strong>Category&nbsp;</strong></span>
+                        <select id="category" ref={categoryEl}>
+                            {categories.map(category => {
+                                const valid = category.id && category.name;
+                                return valid && <option key={category.id}>{category.name}</option>
+                            })}
+                        </select>
+                        <span htmlFor="word_count"><strong>Count&nbsp;</strong></span>
+                        <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
+                        <span htmlFor="book"><strong>Books&nbsp;</strong></span>
+                        <select id="book" ref={bookEl}>
+                            {books.map(book => {
+                                const valid = book.id && book.name;
+                                return valid && <option key={book.id}>{book.name}</option>
+                            })}
+                        </select>
+                        <button className="btn btn-success btn-sm btn-generate">Filter</button>
+                    </form>
+                    <div className="quiz-container">
+                        {step === 1 && <Start onQuizStart={quizStartHandler} />}
+                        {step === 2 && <Question
+                            data={quizData.data[activeQuestion]}
+                            onAnswerUpdate={setAnswers}
+                            numberOfQuestions={quizData.data.length}
+                            activeQuestion={activeQuestion}
+                            onSetActiveQuestion={setActiveQuestion}
+                            onSetStep={setStep}
+                        />}
+                        {step === 3 && <End
+                            results={answers}
+                            data={quizData.data}
+                            onReset={resetClickHandler}
+                            onAnswersCheck={() => setShowModal(true)}
+                            time={time}
+                        />}
 
-                    {showModal && <Modal
-                        onClose={() => setShowModal(false)}
-                        results={answers}
-                        data={quizData.data}
-                    />}
-                </div>
-            </>
+                        {showModal && <Modal
+                            onClose={() => setShowModal(false)}
+                            results={answers}
+                            data={quizData.data}
+                        />}
+                    </div>
+                </>
         )
     }
     function renderError() {

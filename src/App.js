@@ -44,7 +44,6 @@ function Home() {
           <div className="userTitle">
             <h6>Hey User!! Welcome</h6>
             <div className="col-12">
-              <span> Fill your username to continue. </span>
               <span>User name will be used by the application to store your user data</span>
             </div>
           </div>
@@ -56,7 +55,7 @@ function Home() {
                 </div>
               </div>
               <div className="home_btns">
-                <button className="btn btn-warning" disabled={username.length === 0}>&nbsp;&nbsp;Save User&nbsp;&nbsp;</button>
+                <button className="btn btn-warning" disabled={username.length === 0}>&nbsp;&nbsp;Let's Go&nbsp;&nbsp;</button>
               </div>
               {/* {username.length !== 0 &&
                 <div className="col">
