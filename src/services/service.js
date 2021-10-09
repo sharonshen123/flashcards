@@ -14,7 +14,8 @@ const Services = {
     checkUserCache() {
         const userInfo = localStorage.getItem('userInfo') ?? '';
         return userInfo.length > 0;
-    }
+    },
+    filterForQuiz(filterOptions) { return axios.post(API_URL + '/filterForQuiz', filterOptions) },
 }
 
 
