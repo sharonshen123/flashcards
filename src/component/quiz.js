@@ -25,7 +25,6 @@ function Quiz() {
     }, [step]);
 
     const quizStartHandler = () => {
-        setStep(2);
         interval = setInterval(() => {
             setTime(prevTime => prevTime + 1);
         }, 1000);
@@ -69,7 +68,8 @@ function Quiz() {
     function getData(data) {
         console.log('Hey Parent', data);
         if (data) {
-            setQuizData(data);
+            setQuizData(data[0]);
+            setStep(2);
         }
     }
 

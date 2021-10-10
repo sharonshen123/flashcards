@@ -51,7 +51,6 @@ const Start = ({ onQuizStart, getData }) => {
     Services.filterForQuiz(filterOptions)
       .then(res => {
         setLoader(false);
-        console.log(res);
         getData(res?.data);
       });
   }
@@ -61,9 +60,7 @@ const Start = ({ onQuizStart, getData }) => {
     <div className="card">
       <div className="card-content">
         <div className="content">
-          <h1>Start the quiz</h1>
-          <p>Good luck!</p>
-          <form className="header" onSubmit={handleSubmit}>
+          <form className="quiz_header" onSubmit={handleSubmit}>
             <span htmlFor="category"><strong>Category&nbsp;</strong></span>
             <select id="category" ref={categoryEl}>
               {categories.map(category => {
@@ -80,6 +77,8 @@ const Start = ({ onQuizStart, getData }) => {
                 return valid && <option key={book.id}>{book.name}</option>
               })}
             </select>
+            <h1>Start the quiz</h1>
+            <p>Good luck!</p>
             <button className="btn btn-success btn-sm btn-generate">Start</button>
           </form>
         </div>
