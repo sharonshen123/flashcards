@@ -67,7 +67,7 @@ function Quiz() {
 
     function getData(data) {
         if (data) {
-            setQuizData(data[0]);
+            setQuizData(data);
             setStep(2);
         }
     }
@@ -79,6 +79,7 @@ function Quiz() {
                     {step === 1 && <Start onQuizStart={quizStartHandler} getData={getData} />}
                     {step === 2 && <Question
                         quizData={quizData}
+                        onSetStep={setStep}
                     />}
                     {step === 3 && <End
                         results={answers}

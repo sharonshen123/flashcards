@@ -41,9 +41,9 @@ nav {
 }
 
 .loader {
-    align-content: center;
-    margin-top: 20rem;
+    margin-top: 18rem;
     position: absolute;
+    text-align: center;
 }
 
 .userform {
@@ -160,6 +160,10 @@ span {
     margin-left: 5px;
 }
 
+.col {
+    padding: 5px;
+}
+
 .back-label {
     position: relative;
 }
@@ -182,9 +186,13 @@ span {
 label.radio {
     display: block;
     text-align: left;
-    padding: 15px;
+    padding: 5px;
     margin-bottom: 5px;
     font-size: 20px;
+}
+
+label {
+    padding: 5px;
 }
 
 label.radio+.radio {
@@ -213,7 +221,6 @@ label.radio input {
     position: fixed;
     left: 0;
     bottom: 0;
-    /* margin-top: 15rem; */
     width: 100%;
     color: white;
     text-align: center;
@@ -232,4 +239,11 @@ label.radio input {
 
 .quiz_label {
     margin-top: 26px;
+}
+
+.quiz_start {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

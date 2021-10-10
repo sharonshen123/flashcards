@@ -14,6 +14,9 @@ const Services = {
         const userInfo = localStorage.getItem('userInfo') ?? '';
         return userInfo.length > 0;
     },
+    getUserName() {
+        return localStorage.getItem('userInfo') ?? 'Guest';
+    },
     filterForQuiz(filterOptions) { return axios.post(API_URL + '/filterForQuiz', filterOptions) },
 }
 

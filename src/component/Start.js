@@ -62,13 +62,13 @@ const Start = ({ onQuizStart, getData }) => {
 
   return (
     isLoading ? renderLoader() :
-      <div className="card alert-success">
+      <div className="quiz_start alert alert-success">
         <div className="card-content">
           <div className="content">
             <form className="quiz_header" onSubmit={handleSubmit}>
               <h1>Start the Quiz</h1>
               <hr></hr>
-              <div className="col-6">
+              <div className="col" style={{ textAlign: 'left' }}>
                 <span htmlFor="category"><strong>Category&nbsp;</strong></span>
                 <select id="category" ref={categoryEl}>
                   {categories.map(category => {
@@ -91,7 +91,7 @@ const Start = ({ onQuizStart, getData }) => {
                 </select>
               </div>
               <div className="quiz_label">
-                <label>Good luck!</label>
+                <label>Good luck {Services.getUserName()}!</label>
               </div>
               <button className="btn btn-success btn-sm btn-generate">Start</button>
             </form>
