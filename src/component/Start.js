@@ -55,35 +55,49 @@ const Start = ({ onQuizStart, getData }) => {
       });
   }
 
+  function renderLoader() {
+    return <div className="loader offset-6"><span className="spinner-grow spinner-grow-lg text-success"></span></div>;
+  }
+
 
   return (
-    <div className="card">
-      <div className="card-content">
-        <div className="content">
-          <form className="quiz_header" onSubmit={handleSubmit}>
-            <span htmlFor="category"><strong>Category&nbsp;</strong></span>
-            <select id="category" ref={categoryEl}>
-              {categories.map(category => {
-                const valid = category.id && category.name;
-                return valid && <option key={category.id}>{category.name}</option>
-              })}
-            </select>
-            <span htmlFor="word_count"><strong>Count&nbsp;</strong></span>
-            <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
-            <span htmlFor="book"><strong>Books&nbsp;</strong></span>
-            <select id="book" ref={bookEl}>
-              {books.map(book => {
-                const valid = book.id && book.name;
-                return valid && <option key={book.id}>{book.name}</option>
-              })}
-            </select>
-            <h1>Start the quiz</h1>
-            <p>Good luck!</p>
-            <button className="btn btn-success btn-sm btn-generate">Start</button>
-          </form>
+    isLoading ? renderLoader() :
+      <div className="card alert-success">
+        <div className="card-content">
+          <div className="content">
+            <form className="quiz_header" onSubmit={handleSubmit}>
+              <h1>Start the Quiz</h1>
+              <hr></hr>
+              <div className="col-6">
+                <span htmlFor="category"><strong>Category&nbsp;</strong></span>
+                <select id="category" ref={categoryEl}>
+                  {categories.map(category => {
+                    const valid = category.id && category.name;
+                    return valid && <option key={category.id}>{category.name}</option>
+                  })}
+                </select>
+              </div>
+              <div className="col">
+                <span htmlFor="word_count"><strong>Count&nbsp;</strong></span>
+                <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
+              </div>
+              <div className="col">
+                <span htmlFor="book"><strong>Books&nbsp;</strong></span>
+                <select id="book" ref={bookEl}>
+                  {books.map(book => {
+                    const valid = book.id && book.name;
+                    return valid && <option key={book.id}>{book.name}</option>
+                  })}
+                </select>
+              </div>
+              <div className="quiz_label">
+                <label>Good luck!</label>
+              </div>
+              <button className="btn btn-success btn-sm btn-generate">Start</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
   );
 }
 

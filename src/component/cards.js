@@ -99,22 +99,20 @@ function CardsPage() {
                 <>
                     <form className="header" onSubmit={handleSubmit}>
                         <div className="col">
-                            <div className="">
-                                <span htmlFor="category">Category</span>
+                            <div className="col">
+                                <span htmlFor="category"><strong>Category</strong></span>
                                 <select id="category" ref={categoryEl}>
                                     {categories.map(category => {
                                         const valid = category.id > -1 && category.name;
                                         return valid && <option key={category.id}>{category.name}</option>
                                     })}
                                 </select>
-                            </div>
-                            <div className="col">
-                                {/* <label htmlFor="word_count">No: of Words</label> */}
+                                <span htmlFor="word_count"><strong>Word Count</strong></span>
                                 <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
                             </div>
                         </div>
                         <div className="col">
-                            <label htmlFor="book">Books</label>
+                            <span htmlFor="book"><strong>Books</strong></span>
                             <select id="book" ref={bookEl}>
                                 {books.map(book => {
                                     const valid = book.id > -1 && book.name;

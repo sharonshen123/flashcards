@@ -27,24 +27,20 @@ export default function Flashcard({ flashcard }) {
         onClick={() => setFlip(!flip)}
       >
         <div className="front" ref={frontEl}>
-          <strong>{flashcard.word}</strong>
-          <hr></hr>
+          <strong><u>{flashcard.word}</u></strong>
           <div className="back-text">
             <span dangerouslySetInnerHTML={{ __html: flashcard.sentence }}></span>
           </div>
         </div>
         <div className="back" ref={backEl}>
           <div className="back-label">
-          <div className="flashcard-options">
-            <div className="flashcard-option" key={flashcard.word}><b>Definition:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.definition }}></span></div>
+            <div className="flashcard-options">
+              <div className="flashcard-option" key={flashcard.word}><b>Definition:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.definition }}></span></div>
+            </div> 
+            <div className="flashcard-options">
+              <div className="flashcard-option" key={flashcard.synonyms}><b>Synonyms:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.synonyms }}></span></div>
+            </div>
           </div>
-          <hr></hr>
-          <div className="flashcard-options">
-            <div className="flashcard-option" key={flashcard.synonyms}><b>Synonyms:</b> <span dangerouslySetInnerHTML={{ __html: flashcard.synonyms }}></span></div>
-          </div>
-          </div>
-          
-          
         </div>
       </div>
     </div >

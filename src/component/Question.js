@@ -52,8 +52,8 @@ const Question = ({ quizData }) => {
               </label>
             ))}
           </div>
-          {error && <div className="has-text-danger">{error}</div>}
-          <button className="btn btn-primary" onClick={nextClickHandler}>Next</button>
+          {error && <div className="alert-danger">{error}</div>}
+          <button className="btn btn-sm btn-success" onClick={nextClickHandler}>Next</button>
         </div>
       </div>
     </div>

@@ -14,7 +14,6 @@ function Quiz() {
     const [answers, setAnswers] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [time, setTime] = useState(0);
-    const [isLoading, setLoader] = useState(true)
     const [quizData, setQuizData] = useState([]);
 
 
@@ -65,8 +64,8 @@ function Quiz() {
                 </div>
             </div>);
     }
+
     function getData(data) {
-        console.log('Hey Parent', data);
         if (data) {
             setQuizData(data[0]);
             setStep(2);
@@ -75,7 +74,6 @@ function Quiz() {
 
     function renderBody() {
         return (
-            // isLoading ? renderLoader() :
             <>
                 <div className="quiz-container">
                     {step === 1 && <Start onQuizStart={quizStartHandler} getData={getData} />}
