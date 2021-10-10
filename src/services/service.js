@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const API_URL = 'http://sharon.bdxonline.com:5000/'
-console.log(process.env)
 const Services = {
     getAllData() {
         return axios
@@ -14,7 +13,8 @@ const Services = {
     checkUserCache() {
         const userInfo = localStorage.getItem('userInfo') ?? '';
         return userInfo.length > 0;
-    }
+    },
+    filterForQuiz(filterOptions) { return axios.post(API_URL + '/filterForQuiz', filterOptions) },
 }
 
 
