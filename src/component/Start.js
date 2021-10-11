@@ -18,18 +18,13 @@ const Start = ({ onQuizStart, getData }) => {
     Services.getAllData()
       .then(res => {
         setLoader(false);
-        const allCategories = res.data.map((item, index) => {
-          return {
-            id: index,
-            name: item.category
-          }
-        })
-        const allBooks = res.data.map((item, index) => {
-          return {
-            id: index,
-            name: item.book
-          }
-        });
+        const allCategories = [...new Set(res.data.map((item) => {
+          return item.category
+        }))]
+
+        const allBooks = [... new Set(res.data.map((item) => {
+          return item.book
+        }))];
         setCategories(allCategories)
         setBooks(allBooks)
       })
@@ -71,9 +66,9 @@ const Start = ({ onQuizStart, getData }) => {
               <div className="col" style={{ textAlign: 'left' }}>
                 <span htmlFor="category"><strong>Category&nbsp;</strong></span>
                 <select id="category" ref={categoryEl}>
-                  {categories.map(category => {
-                    const valid = category.id && category.name;
-                    return valid && <option key={category.id}>{category.name}</option>
+                  {categories.map((category, idx) => {
+                    const valid = idx > -1 && category !== null;
+                    return valid && <option key={idx}>{category}</option>
                   })}
                 </select>
               </div>
@@ -84,9 +79,9 @@ const Start = ({ onQuizStart, getData }) => {
               <div className="col">
                 <span htmlFor="book"><strong>Books&nbsp;</strong></span>
                 <select id="book" ref={bookEl}>
-                  {books.map(book => {
-                    const valid = book.id && book.name;
-                    return valid && <option key={book.id}>{book.name}</option>
+                  {books.map((book, idx) => {
+                    const valid = idx > -1 && book;
+                    return valid && <option key={idx}>{book}</option>
                   })}
                 </select>
               </div>
