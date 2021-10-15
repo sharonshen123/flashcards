@@ -15,26 +15,20 @@ function CardsPage() {
 
     useEffect(() => {
         Services.getAllData()
-            .then(res => {
-                console.log("All Data", res);
-                setLoader(false);
-                const allCategories = res.data.map((item, index) => {
-                    return {
-                        id: index,
-                        name: item.category
-                    }
-                });
-
-                const allBooks = res.data.map((item, index) => {
-                    return {
-                        id: index,
-                        name: item.book
-                    }
-                });
-                setCategories(allCategories)
-                setBooks(allBooks)
-            })
-    }, [])
+          .then(res => {
+            setLoader(false);
+            const allCategories = [...new Set(res.data.map((item) => {
+              return item.category
+            }))]
+    
+            const allBooks = [... new Set(res.data.map((item) => {
+              return item.book
+            }))];
+            setCategories(allCategories)
+            setBooks(allBooks)
+          })
+      }, [])
+    
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -74,7 +68,7 @@ function CardsPage() {
         return (
             <div className="card alert alert-warning alert-danger">
                 <div>
-                    <div><strong>Sorry No Results!!</strong></div>
+                    <div><strong>Filter Category & Book, Start To Learn Writers' Word Choices!!</strong></div>
                 </div>
             </div>);
     }
@@ -102,11 +96,12 @@ function CardsPage() {
                             <div className="col">
                                 <span htmlFor="category"><strong>Category</strong></span>
                                 <select id="category" ref={categoryEl}>
-                                    {categories.map(category => {
-                                        const valid = category.id > -1 && category.name;
-                                        return valid && <option key={category.id}>{category.name}</option>
-                                    })}
-                                </select>
+                                <option>All</option>
+                  {categories.map((category, idx) => {
+                    const valid = idx > -1 && category !== null;
+                    return valid && <option key={idx}>{category}</option>
+                  })}
+                </select>
                                 <span htmlFor="word_count"><strong>Word Count</strong></span>
                                 <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
                             </div>
@@ -114,11 +109,12 @@ function CardsPage() {
                         <div className="col">
                             <span htmlFor="book"><strong>Books</strong></span>
                             <select id="book" ref={bookEl}>
-                                {books.map(book => {
-                                    const valid = book.id > -1 && book.name;
-                                    return valid && <option key={book.id}>{book.name}</option>
-                                })}
-                            </select>
+                            <option>All</option>
+                  {books.map((book, idx) => {
+                    const valid = idx > -1 && book;
+                    return valid && <option key={idx}>{book}</option>
+                  })}
+                </select>
                         </div>
                         <div className="col">
                             <button className="btn btn-success">Filter</button>

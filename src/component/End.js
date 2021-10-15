@@ -20,7 +20,7 @@ const End = ({ results, data, onReset, onAnswersCheck, time }) => {
     <div className="card">
       <div className="card-content">
         <div className="content">
-          <h3>Your results</h3>
+          <h3>Good Job! Try Another Quiz</h3>
           {/* <p>{correctAnswers} of {data.length}</p>
           <p><strong>{Math.floor((correctAnswers / data.length) * 100)}%</strong></p>
           <p><strong>Your time:</strong> {formatTime(time)}</p>

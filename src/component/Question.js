@@ -12,12 +12,18 @@ const Question = ({ quizData, onSetStep }) => {
 
 
   useEffect(() => {
-    const choices = quizData?.map(choice => {
-      const ch = choice.choices.split(',');
+    const choices = quizData?.map(choice =>{
+      if(choice.choices !== null) {
+      const ch= choice?.choices.split(',')
       choice.choices = ch
-    });
+      }});
+    // const choices = quizData?.map(choice => {
+    // const ch= choice?.choices.split(',');
+    // //const ch = choice.choices.split(',');
+    //   choice.choices = ch
+    // });
     // assigning new choices array to quizData object
-    console.log(quizData);
+    //console.log(quizData);
     setNewQuizData(quizData);
   }, []);
 
@@ -76,7 +82,7 @@ const Question = ({ quizData, onSetStep }) => {
                 <span>{alert}</span>
                 {isCorrect && <span><strong>{newQuizData[activeQuestion].word}</strong></span>}
               </div>}
-              <button className="btn btn-success" onClick={nextClickHandler} disabled={selected === ''}>Save</button>
+              <button className="btn btn-success" onClick={nextClickHandler} disabled={selected === ''}>Submit</button>
               <button className="btn btn-success" onClick={nextPage} disabled={[null, false].includes(isCorrect)}>Next</button>
             </div>}
         </div>
