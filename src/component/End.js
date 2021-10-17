@@ -15,7 +15,7 @@ const End = ({ resetQuiz }) => {
             <h3>Good Job! {Services.getUserName()}</h3>
             <hr />
             <div className="reset-btn">
-              <button className="btn btn-outline-success" onClick={tryAgain}>Try Another Quiz</button>
+              <button className="btn btn-success" onClick={tryAgain}>Try Another Quiz</button>
             </div>
           </div>
         </div>
