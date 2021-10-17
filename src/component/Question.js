@@ -7,7 +7,7 @@ const Question = ({ quizData, onSetStep }) => {
   const [newQuizData, setNewQuizData] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
   const [activeQuestion, setActiveQuestion] = useState(0);
-  const [results, setResults] = useState([]);
+  const [submitted, setSubmitClicked] = useState(false);
 
 
 
@@ -35,26 +35,29 @@ const Question = ({ quizData, onSetStep }) => {
     }
   }
   const checkAnswer = (selected) => {
+    setSubmitClicked(true);
     if (selected === newQuizData[activeQuestion].word) {
       setIsCorrect(true);
-      setAlert('Correct Answer is ');
+      setAlert('Correct Answer');
     } else {
       setIsCorrect(false);
-      setAlert('Incorrect Answer');
+      setAlert('Incorrect Answer. Correct answer is');
     }
   };
 
-  const nextClickHandler = (e) => {
+  const submitClickHandler = (e) => {
     if (selected === '') {
       return setAlert('Please select one option!');
     }
     checkAnswer(selected);
     setSelected('');
   }
+
   const nextPage = (e) => {
-    if (activeQuestion < newQuizData.length - 1 && isCorrect) {
+    if (activeQuestion < newQuizData.length - 1) {
       setActiveQuestion(activeQuestion + 1);
       setAlert('');
+      setSubmitClicked(false);
       setIsCorrect(null);
     }
     else {
@@ -67,13 +70,15 @@ const Question = ({ quizData, onSetStep }) => {
       <div className="card-content">
         <div className="content">
           {newQuizData &&
-            <div className="">
-              <label dangerouslySetInnerHTML={{ __html: newQuizData[activeQuestion]?.question }}></label>
-              <div className="control">
+            <div className="quiz-questions">
+              <div className="col">
+                <label dangerouslySetInnerHTML={{ __html: newQuizData[activeQuestion]?.question }}></label>
+              </div>
+              <div className="col">
                 {newQuizData[activeQuestion]?.choices?.length && newQuizData[activeQuestion]?.choices?.map((choice, idx) => (
                   <div className={`answer ${isCorrect ? 'correct_answer' : ''}`} key={choice}>
                     <label className="radio has-background-light">
-                      <input type="radio" id={idx} name="answer" value={choice} onChange={changeHandler} />
+                      <input type="radio" id={idx} name="answer" value={choice} onChange={changeHandler} disabled={submitted} />
                       <span dangerouslySetInnerHTML={{ __html: choice }}></span>
                     </label>
                   </div>
@@ -81,10 +86,10 @@ const Question = ({ quizData, onSetStep }) => {
               </div>
               {alert && <div className={isCorrect ? 'alert-success' : 'alert-danger'}>
                 <span>{alert}</span>
-                {isCorrect && <span><strong>{newQuizData[activeQuestion].word}</strong></span>}
+                {!isCorrect && <span><strong>{newQuizData[activeQuestion].word}</strong></span>}
               </div>}
-              <button className="btn btn-success" onClick={nextClickHandler} disabled={selected === ''}>Submit</button>
-              <button className="btn btn-success" onClick={nextPage} disabled={[null, false].includes(isCorrect)}>Next</button>
+              <button className="btn btn-success" onClick={submitClickHandler} disabled={selected === ''}>Submit</button>
+              <button className="btn btn-success" onClick={nextPage} disabled={!submitted}>Next</button>
             </div>}
         </div>
       </div>

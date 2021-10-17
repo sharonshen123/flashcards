@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../App.css';
 import Services from '../services/service';
 
@@ -8,6 +9,7 @@ const Start = ({ onQuizStart, getData }) => {
   const [categories, setCategories] = useState([])
   const [books, setBooks] = useState([])
   const [isLoading, setLoader] = useState(true)
+  const history = useHistory();
 
 
   const categoryEl = useRef()
@@ -27,7 +29,7 @@ const Start = ({ onQuizStart, getData }) => {
         }))];
         setCategories(allCategories)
         setBooks(allBooks)
-      })
+      }).catch(err => history.replace('/apierror'))
   }, [])
 
 
@@ -66,7 +68,7 @@ const Start = ({ onQuizStart, getData }) => {
               <div className="col" style={{ textAlign: 'left' }}>
                 <span htmlFor="category"><strong>Category&nbsp;</strong></span>
                 <select id="category" ref={categoryEl}>
-                <option>All</option>
+                  <option>All</option>
                   {categories.map((category, idx) => {
                     const valid = idx > -1 && category !== null;
                     return valid && <option key={idx}>{category}</option>
@@ -80,7 +82,7 @@ const Start = ({ onQuizStart, getData }) => {
               <div className="col">
                 <span htmlFor="book"><strong>Books&nbsp;</strong></span>
                 <select id="book" ref={bookEl}>
-                <option>All</option>
+                  <option>All</option>
                   {books.map((book, idx) => {
                     const valid = idx > -1 && book;
                     return valid && <option key={idx}>{book}</option>

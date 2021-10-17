@@ -10,7 +10,6 @@ let interval;
 function Quiz() {
 
     const [step, setStep] = useState(1);
-    const [activeQuestion, setActiveQuestion] = useState(0);
     const [answers, setAnswers] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [time, setTime] = useState(0);
@@ -29,15 +28,6 @@ function Quiz() {
         }, 1000);
     }
 
-    const resetClickHandler = () => {
-        setActiveQuestion(0);
-        setAnswers([]);
-        setStep(2);
-        setTime(0);
-        interval = setInterval(() => {
-            setTime(prevTime => prevTime + 1);
-        }, 1000);
-    }
     function renderLoader() {
         return <div className="loader offset-6"><span className="spinner-grow spinner-grow-lg text-success"></span></div>;
     }
@@ -88,18 +78,15 @@ function Quiz() {
                         onSetStep={setStep}
                     />}
                     {step === 3 && <End
-                        results={answers}
-                        data={quizData.data}
-                        onReset={resetClickHandler}
-                        onAnswersCheck={() => setShowModal(true)}
-                        time={time}
+                        resetQuiz={setStep}
                     />}
                     {showModal && <Modal
                         onClose={() => setShowModal(false)}
                         results={answers}
                         data={quizData.data}
                     />}
-                    {step !== 1 && <div className="reset-btn">
+                    {/* Renders The Reset Quiz Button */}
+                    {step === 2 && <div className="reset-btn">
                         <button className="btn btn-outline-success" onClick={resetQuiz}>Reset Quiz</button>
                     </div>}
                 </div>

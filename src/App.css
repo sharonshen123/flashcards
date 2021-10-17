@@ -24,6 +24,7 @@ nav {
 .nav-links {
     width: 50%;
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
     list-style: none;
@@ -247,7 +248,28 @@ label.radio input {
     align-items: center;
     text-align: center;
 }
-.reset-btn{
+
+.reset-btn {
     margin-top: 15px;
-    text-align: end;
+    text-align: center;
+}
+
+.quiz-questions {
+    text-align: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.quiz-content {
+    margin: auto;
+}
+
+.content {
+    margin-top: 10px;
+    height: 30rem;
+}
+
+.error-content {
+    margin-top: 10px;
+    text-align: center;
 }

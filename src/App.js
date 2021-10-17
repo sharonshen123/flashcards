@@ -8,7 +8,7 @@ import Nav from './component/nav';
 import Start from './component/Start';
 import Modal from './component/Modal';
 import Question from './component/Question';
-import Uploadwords from './component/Uploadwords';
+import ApiError from './component/ApiError';
 function App() {
   return (
     <Router>
@@ -22,7 +22,7 @@ function App() {
           <Route path="/start" component={Start} />
           <Route path="/modal" component={Modal} />
           <Route path="/question" component={Question} />
-          <Route path="/uploadwords" component={Uploadwords} />
+          <Route path="/apierror" component={ApiError} />
         </Switch>
         <div className="footer col-12">
           <span>All rights reserved &copy;Sharon Shen</span>

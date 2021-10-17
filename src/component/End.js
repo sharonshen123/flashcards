@@ -1,31 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import Services from '../services/service';
 
-import { formatTime } from '../utils';
+const End = ({ resetQuiz }) => {
 
-const End = ({ results, data, onReset, onAnswersCheck, time }) => {
-  const [correctAnswers, setCorrectAnswers] = useState(0);
-
-  // useEffect(() => {
-  //   let correct = 0;
-  //   results.forEach((result, index) => {
-  //     if (result.a === data[index].answer) {
-  //       correct++;
-  //     }
-  //   });
-  //   setCorrectAnswers(correct);
-  //   // eslint-disable-next-line
-  // }, []);
+  const tryAgain = () => {
+    resetQuiz(1);
+  }
 
   return (
-    <div className="card">
-      <div className="card-content">
-        <div className="content">
-          <h3>Good Job! Try Another Quiz</h3>
-          {/* <p>{correctAnswers} of {data.length}</p>
-          <p><strong>{Math.floor((correctAnswers / data.length) * 100)}%</strong></p>
-          <p><strong>Your time:</strong> {formatTime(time)}</p>
-          <button className="button is-info mr-2" onClick={onAnswersCheck}>Check your answers</button>
-          <button className="button is-success" onClick={onReset}>Try again</button> */}
+    <div className="container">
+      <div className="card">
+        <div className="card-content">
+          <div className="content">
+            <h3>Good Job! {Services.getUserName()}</h3>
+            <hr />
+            <div className="reset-btn">
+              <button className="btn btn-outline-success" onClick={tryAgain}>Try Another Quiz</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
