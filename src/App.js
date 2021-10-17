@@ -5,6 +5,10 @@ import Quiz from './component/quiz';
 import Cards from './component/cards';
 import Services from './services/service';
 import Nav from './component/nav';
+import Start from './component/Start';
+import Modal from './component/Modal';
+import Question from './component/Question';
+import Uploadwords from './component/Uploadwords';
 function App() {
   return (
     <Router>
@@ -15,6 +19,10 @@ function App() {
           {/* <Route path="/home" component={Home} /> */}
           <Route path="/cards" component={Cards} />
           <Route path="/quiz" component={Quiz} />
+          <Route path="/start" component={Start} />
+          <Route path="/modal" component={Modal} />
+          <Route path="/question" component={Question} />
+          <Route path="/uploadwords" component={Uploadwords} />
         </Switch>
         <div className="footer col-12">
           <span>All rights reserved &copy;Sharon Shen</span>
