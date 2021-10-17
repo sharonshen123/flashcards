@@ -12,11 +12,12 @@ const Question = ({ quizData, onSetStep }) => {
 
 
   useEffect(() => {
-    const choices = quizData?.map(choice =>{
-      if(choice.choices !== null) {
-      const ch= choice?.choices.split(',')
-      choice.choices = ch
-      }});
+    const choices = quizData?.map(choice => {
+      if (choice.choices !== null) {
+        const ch = choice?.choices.split(',')
+        choice.choices = ch
+      }
+    });
     // const choices = quizData?.map(choice => {
     // const ch= choice?.choices.split(',');
     // //const ch = choice.choices.split(',');

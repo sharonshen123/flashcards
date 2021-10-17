@@ -17,6 +17,7 @@ function CardsPage() {
         Services.getAllData()
           .then(res => {
             setLoader(false);
+            console.log(res);
             const allCategories = [...new Set(res.data.map((item) => {
               return item.category
             }))]

@@ -34,7 +34,7 @@ function App() {
 function Home() {
   const cacheUsername = localStorage.getItem('userInfo') ?? ''; // checks if user is existing user
   const [username, setUserName] = useState("" || cacheUsername);
-  const [isUserSaved, saveUser] = useState(false);
+  // const [isUserSaved, saveUser] = useState(false);
   const history = useHistory();
 
   function handleUserName(e) {
@@ -45,7 +45,6 @@ function Home() {
     e.preventDefault();
     let username = e.target[0].value;
     localStorage.setItem('userInfo', username); // saving user data in localstorage
-    saveUser(true);
   }
 
   function renderNewUserBox() {

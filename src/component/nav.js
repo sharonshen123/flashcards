@@ -21,9 +21,9 @@ function Nav() {
                 <Link style={navStyle} to="/Cards">
                     <li>Cards</li>
                 </Link>
-                <Link style={navStyle} to="/UploadWords">
+                <a style={navStyle} href="http://sharon.bdxonline.com:5000/">
                     <li>UploadWords</li>
-                </Link>
+                </a>
 
             </ul>
         </nav>

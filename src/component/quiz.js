@@ -72,6 +72,12 @@ function Quiz() {
         }
     }
 
+    const resetQuiz = () => {
+        const cnfm = window.confirm('Are you sure, want to reset the Quiz?');
+        if (cnfm) setStep(1)
+        else return;
+    }
+
     function renderBody() {
         return (
             <>
@@ -88,12 +94,14 @@ function Quiz() {
                         onAnswersCheck={() => setShowModal(true)}
                         time={time}
                     />}
-
                     {showModal && <Modal
                         onClose={() => setShowModal(false)}
                         results={answers}
                         data={quizData.data}
                     />}
+                    {step !== 1 && <div className="reset-btn">
+                        <button className="btn btn-outline-success" onClick={resetQuiz}>Reset Quiz</button>
+                    </div>}
                 </div>
             </>
         )
