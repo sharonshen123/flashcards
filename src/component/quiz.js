@@ -87,7 +87,7 @@ function Quiz() {
                     />}
                     {/* Renders The Reset Quiz Button */}
                     {step === 2 && <div className="reset-btn">
-                        <button className="btn btn-outline-success" onClick={resetQuiz}>Reset Quiz</button>
+                        <button className="btn btn-success" onClick={resetQuiz}>Reset Quiz</button>
                     </div>}
                 </div>
             </>

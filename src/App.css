@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(207, 243, 208);
+    background-color: rgb(234, 250, 234);
 }
 
 * {
@@ -146,7 +146,7 @@ strong {
 }
 
 .front {
-    background-color: rgb(207, 243, 208);
+    background-color: rgb(255, 255, 255);
 }
 
 .back {
@@ -170,9 +170,7 @@ span {
 }
 
 .back-text {
-    /* background-color: rgb(207, 243, 208); */
     border-radius: 2px;
-    /* border-style: inset; */
     padding: 1px;
 }
 
