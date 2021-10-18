@@ -9,27 +9,27 @@ function CardsPage() {
     const [books, setBooks] = useState([])
     const [isLoading, setLoader] = useState(true)
 
-    const categoryEl = useRef()
-    const bookEl = useRef()
-    const wordEl = useRef()
+    const categoryEl = useRef();
+    const bookEl = useRef();
+    const wordEl = useRef();
 
     useEffect(() => {
         Services.getAllData()
-          .then(res => {
-            setLoader(false);
-            console.log(res);
-            const allCategories = [...new Set(res.data.map((item) => {
-              return item.category
-            }))]
-    
-            const allBooks = [... new Set(res.data.map((item) => {
-              return item.book
-            }))];
-            setCategories(allCategories)
-            setBooks(allBooks)
-          })
-      }, [])
-    
+            .then(res => {
+                setLoader(false);
+                console.log(res);
+                const allCategories = [...new Set(res.data.map((item) => {
+                    return item.category
+                }))]
+
+                const allBooks = [... new Set(res.data.map((item) => {
+                    return item.book
+                }))];
+                setCategories(allCategories)
+                setBooks(allBooks)
+            })
+    }, []);
+
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -97,12 +97,12 @@ function CardsPage() {
                             <div className="col">
                                 <span htmlFor="category"><strong>Category</strong></span>
                                 <select id="category" ref={categoryEl}>
-                                <option>All</option>
-                  {categories.map((category, idx) => {
-                    const valid = idx > -1 && category !== null;
-                    return valid && <option key={idx}>{category}</option>
-                  })}
-                </select>
+                                    <option>All</option>
+                                    {categories.map((category, idx) => {
+                                        const valid = idx > -1 && category !== null;
+                                        return valid && <option key={idx}>{category}</option>
+                                    })}
+                                </select>
                                 <span htmlFor="word_count"><strong>Word Count</strong></span>
                                 <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
                             </div>
@@ -110,12 +110,12 @@ function CardsPage() {
                         <div className="col">
                             <span htmlFor="book"><strong>Books</strong></span>
                             <select id="book" ref={bookEl}>
-                            <option>All</option>
-                  {books.map((book, idx) => {
-                    const valid = idx > -1 && book;
-                    return valid && <option key={idx}>{book}</option>
-                  })}
-                </select>
+                                <option>All</option>
+                                {books.map((book, idx) => {
+                                    const valid = idx > -1 && book;
+                                    return valid && <option key={idx}>{book}</option>
+                                })}
+                            </select>
                         </div>
                         <div className="col">
                             <button className="btn btn-success">Filter</button>
