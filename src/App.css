@@ -16,7 +16,6 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 10vh;
     background: #198754;
     color: white;
 }

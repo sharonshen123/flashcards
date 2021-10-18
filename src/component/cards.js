@@ -67,7 +67,7 @@ function CardsPage() {
 
     function renderNoData() {
         return (
-            <div className="card alert alert-warning alert-danger">
+            <div className="alert alert-warning alert-danger">
                 <div>
                     <div><strong>Filter Category & Book, Start To Learn Writers' Word Choices!!</strong></div>
                 </div>
@@ -91,21 +91,19 @@ function CardsPage() {
     function renderBody() {
         return (
             isLoading ? renderLoader() :
-                <>
+                <div>
                     <form className="header" onSubmit={handleSubmit}>
                         <div className="col">
-                            <div className="col">
-                                <span htmlFor="category"><strong>Category</strong></span>
-                                <select id="category" ref={categoryEl}>
-                                    <option>All</option>
-                                    {categories.map((category, idx) => {
-                                        const valid = idx > -1 && category !== null;
-                                        return valid && <option key={idx}>{category}</option>
-                                    })}
-                                </select>
-                                <span htmlFor="word_count"><strong>Word Count</strong></span>
-                                <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
-                            </div>
+                            <span htmlFor="category"><strong>Category</strong></span>
+                            <select id="category" ref={categoryEl}>
+                                <option>All</option>
+                                {categories.map((category, idx) => {
+                                    const valid = idx > -1 && category !== null;
+                                    return valid && <option key={idx}>{category}</option>
+                                })}
+                            </select>
+                            <span htmlFor="word_count"><strong>Word Count</strong></span>
+                            <input type="number" id="word_count" min="1" step="1" defaultValue={10} ref={wordEl} />
                         </div>
                         <div className="col">
                             <span htmlFor="book"><strong>Books</strong></span>
@@ -124,7 +122,7 @@ function CardsPage() {
                     <div className="flashcard-container">
                         {flashcards.length > 0 ? <FlashcardList flashcards={flashcards} /> : renderNoData()}
                     </div>
-                </>)
+                </div>)
     }
 
     // RETURN MAIN CONTENT IF USER INFO FOUND ELSE SHOW ERROR

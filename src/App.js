@@ -53,7 +53,7 @@ function Home() {
     return (
       <>
         {isUserSaved ? renderExistingUserBox() :
-          <div className="container usercontainer">
+          <div className="usercontainer">
             <div className="card user-card alert-success">
               <div className="userTitle">
                 <h4>Hey!! Lets begin with your user name</h4>
