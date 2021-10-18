@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 const Question = ({ quizData, onSetStep }) => {
   const [selected, setSelected] = useState('');
   const [alert, setAlert] = useState('');
-  // const radiosWrapper = useRef();
   const [newQuizData, setNewQuizData] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [submitted, setSubmitClicked] = useState(false);
+  const [questionCount, setTotalQuestions] = useState(0);
 
 
 
@@ -24,7 +24,8 @@ const Question = ({ quizData, onSetStep }) => {
     //   choice.choices = ch
     // });
     // assigning new choices array to quizData object
-    //console.log(quizData);
+    console.log(quizData);
+    setTotalQuestions(quizData.length);
     setNewQuizData(quizData);
   }, []);
 
@@ -71,6 +72,9 @@ const Question = ({ quizData, onSetStep }) => {
         <div className="content">
           {newQuizData &&
             <div className="quiz-questions">
+              <div className="total-questions">
+                <span>Questions: {activeQuestion + 1}/{questionCount}</span>
+              </div>
               <div className="col">
                 <label dangerouslySetInnerHTML={{ __html: newQuizData[activeQuestion]?.question }}></label>
               </div>

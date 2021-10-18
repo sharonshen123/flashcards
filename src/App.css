@@ -262,3 +262,7 @@ label.radio input {
     margin-top: 10px;
     text-align: center;
 }
+
+.total-questions{
+    text-align: left;
+}
