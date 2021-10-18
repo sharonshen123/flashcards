@@ -67,37 +67,40 @@ const Question = ({ quizData, onSetStep }) => {
   }
 
   return (
-    <div className="card">
-      <div className="card-content">
-        <div className="content">
-          {newQuizData &&
-            <div className="quiz-questions">
-              <div className="total-questions">
-                <span>Questions: {activeQuestion + 1}/{questionCount}</span>
+    <>
+      {newQuizData?.length > 0 ?
+        <div className="card">
+          <div className="card-content">
+            <div className="content">
+              <div className="quiz-questions">
+                <div className="total-questions">
+                  <span>Questions: {activeQuestion + 1}/{questionCount}</span>
+                </div>
+                <div className="col">
+                  <label dangerouslySetInnerHTML={{ __html: newQuizData[activeQuestion]?.question }}></label>
+                </div>
+                <div className="col">
+                  {newQuizData[activeQuestion]?.choices?.length && newQuizData[activeQuestion]?.choices?.map((choice, idx) => (
+                    <div className={`answer ${isCorrect ? 'correct_answer' : ''}`} key={choice}>
+                      <label className="radio has-background-light">
+                        <input type="radio" id={idx} name="answer" value={choice} onChange={changeHandler} disabled={submitted} />
+                        <span dangerouslySetInnerHTML={{ __html: choice }}></span>
+                      </label>
+                    </div>
+                  ))}
+                </div>
+                {alert && <div className={isCorrect ? 'alert-success' : 'alert-danger'}>
+                  <span>{alert}</span>
+                  {!isCorrect && <span><strong>{newQuizData[activeQuestion].word}</strong></span>}
+                </div>}
+                <button className="btn btn-success btn-sm" onClick={submitClickHandler} disabled={selected === ''}>Submit</button>
+                <button className="btn btn-success btn-sm" onClick={nextPage} disabled={!submitted}>Next</button>
               </div>
-              <div className="col">
-                <label dangerouslySetInnerHTML={{ __html: newQuizData[activeQuestion]?.question }}></label>
-              </div>
-              <div className="col">
-                {newQuizData[activeQuestion]?.choices?.length && newQuizData[activeQuestion]?.choices?.map((choice, idx) => (
-                  <div className={`answer ${isCorrect ? 'correct_answer' : ''}`} key={choice}>
-                    <label className="radio has-background-light">
-                      <input type="radio" id={idx} name="answer" value={choice} onChange={changeHandler} disabled={submitted} />
-                      <span dangerouslySetInnerHTML={{ __html: choice }}></span>
-                    </label>
-                  </div>
-                ))}
-              </div>
-              {alert && <div className={isCorrect ? 'alert-success' : 'alert-danger'}>
-                <span>{alert}</span>
-                {!isCorrect && <span><strong>{newQuizData[activeQuestion].word}</strong></span>}
-              </div>}
-              <button className="btn btn-success btn-sm" onClick={submitClickHandler} disabled={selected === ''}>Submit</button>
-              <button className="btn btn-success btn-sm" onClick={nextPage} disabled={!submitted}>Next</button>
-            </div>}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+        : <div className="alert alert-danger">Sorry,No Quiz Data. Reset Prefrences</div>}
+    </>
   );
 }
 
