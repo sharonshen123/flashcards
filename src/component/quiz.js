@@ -71,7 +71,11 @@ function Quiz() {
     function renderBody() {
         return (
             <>
-                <div className="quiz-container">
+                <div className="quiz-container container">
+                    {/* Renders The Reset Quiz Button */}
+                {step === 2 && <div className="reset-btn">
+                    <button className="btn btn-success" onClick={resetQuiz}>Reset Quiz</button>
+                </div>}
                     {step === 1 && <Start onQuizStart={quizStartHandler} getData={getData} />}
                     {step === 2 && <Question
                         quizData={quizData}
@@ -85,10 +89,6 @@ function Quiz() {
                         results={answers}
                         data={quizData.data}
                     />}
-                    {/* Renders The Reset Quiz Button */}
-                    {step === 2 && <div className="reset-btn">
-                        <button className="btn btn-success" onClick={resetQuiz}>Reset Quiz</button>
-                    </div>}
                 </div>
             </>
         )

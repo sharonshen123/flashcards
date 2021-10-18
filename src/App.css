@@ -93,7 +93,6 @@ nav {
 
 .card-grid {
     display: grid;
-    align-items: center;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
     padding: 16px;
@@ -110,8 +109,8 @@ nav {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    /* align-items: center; */
     border-radius: .25rem;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
     transition: 0.5s ease;
@@ -213,7 +212,6 @@ label.radio input {
 
 .quiz-container {
     padding: 16px;
-    margin-top: 2rem;
 }
 
 .alert-footer {
@@ -248,8 +246,7 @@ label.radio input {
 }
 
 .reset-btn {
-    margin-top: 15px;
-    text-align: center;
+    text-align: end;
 }
 
 .quiz-questions {
@@ -260,10 +257,6 @@ label.radio input {
 
 .quiz-content {
     margin: auto;
-}
-
-.content {
-    margin-top: 10px;
 }
 
 .error-content {

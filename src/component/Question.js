@@ -88,8 +88,8 @@ const Question = ({ quizData, onSetStep }) => {
                 <span>{alert}</span>
                 {!isCorrect && <span><strong>{newQuizData[activeQuestion].word}</strong></span>}
               </div>}
-              <button className="btn btn-success" onClick={submitClickHandler} disabled={selected === ''}>Submit</button>
-              <button className="btn btn-success" onClick={nextPage} disabled={!submitted}>Next</button>
+              <button className="btn btn-success btn-sm" onClick={submitClickHandler} disabled={selected === ''}>Submit</button>
+              <button className="btn btn-success btn-sm" onClick={nextPage} disabled={!submitted}>Next</button>
             </div>}
         </div>
       </div>
