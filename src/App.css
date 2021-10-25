@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(234, 250, 234);
+    background-color: rgb(234, 250, 234) !important;
 }
 
 * {
@@ -109,11 +109,12 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    /* align-items: center; */
+    text-align: center;
     border-radius: .25rem;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
     transition: 0.5s ease;
     cursor: pointer;
+    overflow-wrap: anywhere;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
@@ -231,6 +232,7 @@ label.radio input {
     color: white;
     text-align: center;
     font-size: 1.4rem;
+    height: 2.5rem;
 }
 
 .quiz_label {
