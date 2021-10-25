@@ -109,7 +109,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    text-align: center;
+    text-align: justify;
     border-radius: .25rem;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
     transition: 0.5s ease;
